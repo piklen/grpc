@@ -1,4 +1,4 @@
-module grpc
+module github.com/piklen/grpc
 
 go 1.21.5
 
