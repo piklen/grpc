@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"flag"
+	"hello_client/pb"
+
 	"log"
 	"time"
-
-	"hello_client/pb"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -34,7 +34,7 @@ func main() {
 	c := pb.NewGreeterClient(conn)
 
 	// 执行RPC调用并打印收到的响应数据
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
 	defer cancel()
 	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: *name})
 	if err != nil {
